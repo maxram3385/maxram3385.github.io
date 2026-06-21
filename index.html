@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>My Portfolio Homepage</title>
+</head>
+
+<body>
+   <header>
+      <h1 id="welcomeMessage">Welcome to My Homepage</h1>
+
+      <nav>
+         <a href="#about">About</a>
+         <a href="#projects">Projects</a>
+         <a href="#contact">Contact</a>
+      </nav>
+   </header>
+
+   <main>
+      <section id="about">
+         <h2>About</h2>
+
+         <p>
+            Hello, my name is Max. I am a student learning web development, programming,
+            and the fundamentals of building functional websites and applications. Outside
+            of school, I work in aquarium maintenance, which has given me hands-on experience
+            with problem solving, client communication, and managing detailed systems. I also
+            enjoy playing live music and am currently learning how to record music more fluently.
+            This homepage serves as a simple introduction to who I am, some of the projects
+            I have worked on, and a way to contact me.
+         </p>
+      </section>
+
+      <section id="projects">
+         <h2>Projects</h2>
+
+         <p>
+            Here are three projects I have worked on while learning programming,
+            application development, and web development.
+         </p>
+
+         <a href="https://github.com/maxram3385/SDC330L_Project" target="_blank">
+            <img src="https://via.placeholder.com/150" alt="Employee Management App">
+            <p>Employee Management App</p>
+         </a>
+
+         <a href="https://github.com/maxram3385/MaxRamosPhotoGallery" target="_blank">
+            <img src="https://via.placeholder.com/150" alt="Photo Gallery Project">
+            <p>Photo Gallery</p>
+         </a>
+
+         <a href="https://github.com/maxram3385/HomebredAquaticsAquariumTracker" target="_blank">
+            <img src="https://via.placeholder.com/150" alt="Aquarium Tracker Project">
+            <p>Aquarium Tracker</p>
+         </a>
+      </section>
+
+     //create a contact 
+      <section id="contact">
+         <h2>Contact</h2>
+
+         <form>
+            <label for="senderName">Name:</label>
+            <input type="text" id="senderName" name="senderName">
+
+            <br><br>
+
+            <label for="senderEmail">Email Address:</label>
+            <input type="email" id="senderEmail" name="senderEmail">
+
+            <br><br>
+
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject">
+
+            <br><br>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message"></textarea>
+
+            <br><br>
+
+            <button type="submit">Submit</button>
+         </form>
+      </section>
+   </main>
+
+   <script>
+      // Prompt the user for their name and store it in a variable
+      let userName = prompt("What is your name?");
+
+      // Update the welcome message if the user enters a name
+      if (userName) {
+         document.getElementById("welcomeMessage").textContent = "Welcome, " + userName + "!";
+      }
+   </script>
+</body>
+</html>
