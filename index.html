@@ -1,6 +1,13 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
+   <!--
+      Name: Max Ramos
+      Date: July 12, 2026
+      Purpose: This is the third installment of a cumulative project, a 
+      personal portfolio homepage that introduces me, displays my skills
+      and previous projects, and includes a contact form.
+-->
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>My Portfolio Homepage</title>
@@ -80,6 +87,32 @@
          display: inline-block;
          text-align: left;
       }
+
+      .highlighted-section {
+         border: 2px solid black;
+         padding: 15px;
+      }
+
+      body.dark-mode .highlighted-section {
+         border-color: white;
+      }
+
+      .page-notification {
+         border: 1px solid black;
+         padding: 10px;
+         margin-bottom: 20px;
+         background-color: #f5f5f5;
+      }
+
+      body.dark-mode .page-notification {
+         border-color: white;
+         background-color: #222222;
+      }
+
+      #formStatus {
+         text-align: center;
+         font-weight: bold;
+      }
    </style>
 </head>
 
@@ -105,13 +138,14 @@
          <h2>About</h2>
 
          <p>
-            Hello, my name is Max. I am a student learning web development, programming,
-            and the fundamentals of building functional websites and applications. Outside
-            of school, I work in aquarium maintenance, which has given me hands-on experience
-            with problem solving, client communication, and managing detailed systems. I also
-            enjoy playing live music and am currently learning how to record music more fluently.
-            This homepage serves as a simple introduction to who I am, some of the projects
-            I have worked on, and a way to contact me.
+            Hello, my name is Max. I am a student learning web development,
+            programming, and the fundamentals of building functional websites
+            and applications. Outside of school, I work in aquarium maintenance,
+            which has given me hands-on experience with problem solving, client
+            communication, and managing detailed systems. I also enjoy playing
+            live music and am currently learning how to record music more
+            fluently. This homepage serves as a simple introduction to who I am,
+            some of the projects I have worked on, and a way to contact me.
          </p>
 
          <h3>Skills and Technologies</h3>
@@ -128,7 +162,10 @@
                This resource links to my ECPI Software Development program page.
             </p>
 
-            <a href="https://www.ecpi.edu/programs/software-development-bachelor-degree" target="_blank">
+            <a
+               href="https://www.ecpi.edu/programs/software-development-bachelor-degree"
+               target="_blank"
+            >
                ECPI Software Development Bachelor's Degree
             </a>
          </div>
@@ -140,18 +177,36 @@
                These are image links to some of my personal GitHub projects.
             </p>
 
-            <a href="https://github.com/maxram3385/SDC330L_Project" target="_blank">
-               <img src="SDC330LProjgit.png" alt="Employee Management App screenshot">
+            <a
+               href="https://github.com/maxram3385/SDC330L_Project"
+               target="_blank"
+            >
+               <img
+                  src="SDC330LProjgit.png"
+                  alt="Employee Management App screenshot"
+               >
                <p>Employee Management App</p>
             </a>
 
-            <a href="https://github.com/maxram3385/MaxRamosPhotoGallery" target="_blank">
-               <img src="Photogallerygit.png" alt="Photo Gallery Project screenshot">
+            <a
+               href="https://github.com/maxram3385/MaxRamosPhotoGallery"
+               target="_blank"
+            >
+               <img
+                  src="Photogallerygit.png"
+                  alt="Photo Gallery Project screenshot"
+               >
                <p>Photo Gallery</p>
             </a>
 
-            <a href="https://github.com/maxram3385/HomebredAquaticsAquariumTracker" target="_blank">
-               <img src="Aquariumtrackergit.png" alt="Aquarium Tracker Project screenshot">
+            <a
+               href="https://github.com/maxram3385/HomebredAquaticsAquariumTracker"
+               target="_blank"
+            >
+               <img
+                  src="Aquariumtrackergit.png"
+                  alt="Aquarium Tracker Project screenshot"
+               >
                <p>Aquarium Tracker</p>
             </a>
          </div>
@@ -165,18 +220,39 @@
             application development, and web development.
          </p>
 
-         <a class="project-link" href="https://github.com/maxram3385/SDC330L_Project" target="_blank">
-            <img src="SDC330LProjgit.png" alt="Employee Management App screenshot">
+         <a
+            class="project-link"
+            href="https://github.com/maxram3385/SDC330L_Project"
+            target="_blank"
+         >
+            <img
+               src="SDC330LProjgit.png"
+               alt="Employee Management App screenshot"
+            >
             <p>Employee Management App</p>
          </a>
 
-         <a class="project-link" href="https://github.com/maxram3385/MaxRamosPhotoGallery" target="_blank">
-            <img src="Photogallerygit.png" alt="Photo Gallery Project screenshot">
+         <a
+            class="project-link"
+            href="https://github.com/maxram3385/MaxRamosPhotoGallery"
+            target="_blank"
+         >
+            <img
+               src="Photogallerygit.png"
+               alt="Photo Gallery Project screenshot"
+            >
             <p>Photo Gallery</p>
          </a>
 
-         <a class="project-link" href="https://github.com/maxram3385/HomebredAquaticsAquariumTracker" target="_blank">
-            <img src="Aquariumtrackergit.png" alt="Aquarium Tracker Project screenshot">
+         <a
+            class="project-link"
+            href="https://github.com/maxram3385/HomebredAquaticsAquariumTracker"
+            target="_blank"
+         >
+            <img
+               src="Aquariumtrackergit.png"
+               alt="Aquarium Tracker Project screenshot"
+            >
             <p>Aquarium Tracker</p>
          </a>
       </section>
@@ -216,13 +292,14 @@
 
       // Update the welcome message if the user enters a name
       if (userName) {
-         document.getElementById("welcomeMessage").textContent = "Welcome, " + userName + "!";
+         document.getElementById("welcomeMessage").textContent =
+            "Welcome, " + userName + "!";
       }
 
       // Create an array of skills and technologies
       let skills = ["HTML", "CSS", "JavaScript", "Git", "GitHub"];
 
-      // Use a loop to display the skills as a bulleted list in the About section
+      // Use a loop to display the skills as a bulleted list
       let skillsList = document.getElementById("skillsList");
 
       skills.forEach(function(skill) {
@@ -231,14 +308,49 @@
          skillsList.appendChild(listItem);
       });
 
+      // Dynamically create and add a paragraph to the Projects section
+      let projectSection = document.getElementById("projects");
+      let recentProject = document.createElement("p");
+
+      recentProject.textContent =
+         "My most recent project is an aquarium tracker application that helps organize aquarium information.";
+
+      projectSection.appendChild(recentProject);
+
+      // Add a notification to the top of the page after a short delay
+      setTimeout(function() {
+         let notification = document.createElement("p");
+
+         notification.textContent =
+            "Welcome! Take a look at my projects and skills.";
+
+         notification.classList.add("page-notification");
+
+         document.body.insertBefore(
+            notification,
+            document.body.firstChild
+         );
+      }, 1000);
+
+      // Select and modify two existing page elements
+      let projectsHeading = document.querySelector("#projects h2");
+      projectsHeading.textContent = "My Projects";
+
+      let aboutSection = document.getElementById("about");
+      aboutSection.classList.add("highlighted-section");
+
       // Count how many project links are listed in the Projects section
-      let projectCount = document.querySelectorAll("#projects .project-link").length;
+      let projectCount =
+         document.querySelectorAll("#projects .project-link").length;
 
       // Store both Featured Content divs in variables
-      let universityResources = document.getElementById("universityResources");
-      let personalProjects = document.getElementById("personalProjects");
+      let universityResources =
+         document.getElementById("universityResources");
 
-      // Use conditional logic to decide which Featured Content divs should display
+      let personalProjects =
+         document.getElementById("personalProjects");
+
+      // Decide which Featured Content divs should display
       if (projectCount < 3) {
          universityResources.style.display = "block";
          personalProjects.style.display = "block";
@@ -250,25 +362,45 @@
       // Select the dark mode checkbox
       let darkModeToggle = document.getElementById("darkMode");
 
-      // Use an event listener to switch between light mode and dark mode
+      // Switch between light mode and dark mode
       darkModeToggle.addEventListener("change", function() {
          document.body.classList.toggle("dark-mode");
       });
 
-      // Select the Submit button from the Contact form
-      let submitButton = document.querySelector("#submitButton");
+      // Select the Contact form
+      let contactForm = document.getElementById("contactForm");
 
-      // Add interactivity to the Submit button
-      submitButton.addEventListener("click", function(event) {
+      // Prevent normal submission and display timed status messages
+      contactForm.addEventListener("submit", function(event) {
          event.preventDefault();
 
-         let senderName = document.getElementById("senderName").value;
+         let senderName =
+            document.getElementById("senderName").value;
 
-         if (senderName) {
-            alert("Thank you, " + senderName + ", your message has been sent!");
-         } else {
-            alert("Thank you, your message has been sent!");
+         let formStatus =
+            document.getElementById("formStatus");
+
+         // Create the status paragraph the first time the form is submitted
+         if (!formStatus) {
+            formStatus = document.createElement("p");
+            formStatus.id = "formStatus";
+            contactForm.appendChild(formStatus);
          }
+
+         formStatus.textContent = "Sending message...";
+
+         // Replace the loading message after 2.5 seconds
+         setTimeout(function() {
+            if (senderName) {
+               formStatus.textContent =
+                  "Thank you, " +
+                  senderName +
+                  ". Message sent successfully!";
+            } else {
+               formStatus.textContent =
+                  "Message sent successfully!";
+            }
+         }, 2500);
       });
    </script>
 </body>
