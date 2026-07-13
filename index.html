@@ -75,7 +75,8 @@
          padding: 15px;
          margin: 20px auto;
          max-width: 650px;
-         background-color: #f5f5f5;
+         background-color: #222222;
+         color: white;
       }
 
       body.dark-mode .resource-box {
@@ -332,23 +333,44 @@
          );
       }, 1000);
 
-      // Select and modify two existing page elements
-      let projectsHeading = document.querySelector("#projects h2");
-      projectsHeading.textContent = "My Projects";
+      // Change the Projects section background and text colors
+      let projectsSection = document.getElementById("projects");
+      projectsSection.style.backgroundColor = "#222222";
+      projectsSection.style.color = "white";
+      projectsSection.style.padding = "15px";
 
+      let projectsHeading = document.querySelector("#projects h2");
+      projectsHeading.style.color = "#C9A227";
+
+      // Add a border, dark gray background, and antique gold text
       let aboutSection = document.getElementById("about");
-      aboutSection.classList.add("highlighted-section");
+      aboutSection.style.border = "2px solid black";
+      aboutSection.style.backgroundColor = "#222222";
+      aboutSection.style.color = "#C9A227";
+      aboutSection.style.padding = "15px";
+
+      // Change the Personal Projects background and text colors
+      let personalProjects =
+         document.getElementById("personalProjects");
+
+      personalProjects.style.backgroundColor = "#222222";
+      personalProjects.style.color = "white";
+
+      // Change the Personal Projects links to white
+      let personalProjectLinks =
+         document.querySelectorAll("#personalProjects a");
+
+      personalProjectLinks.forEach(function(link) {
+         link.style.color = "white";
+      });
 
       // Count how many project links are listed in the Projects section
       let projectCount =
          document.querySelectorAll("#projects .project-link").length;
 
-      // Store both Featured Content divs in variables
+      // Store the University Resources div in a variable
       let universityResources =
          document.getElementById("universityResources");
-
-      let personalProjects =
-         document.getElementById("personalProjects");
 
       // Decide which Featured Content divs should display
       if (projectCount < 3) {
