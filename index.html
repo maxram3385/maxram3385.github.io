@@ -3,10 +3,10 @@
 <head>
    <!--
       Name: Max Ramos
-      Date: July 12, 2026
-      Purpose: This is the third installment of a cumulative project, a 
-      personal portfolio homepage that introduces me, displays my skills
-      and previous projects, and includes a contact form.
+      Date: July 19, 2026
+      Purpose: This is the fourth installment of a cumulative project, a
+      personal portfolio homepage that includes a custom welcome modal,
+      a tooltip for the contact form, and a saved dark mode preference.
 -->
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -114,10 +114,73 @@
          text-align: center;
          font-weight: bold;
       }
+
+      .modal-overlay {
+         position: fixed;
+         top: 0;
+         right: 0;
+         bottom: 0;
+         left: 0;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         background-color: rgba(0, 0, 0, 0.6);
+         z-index: 1000;
+      }
+
+      .modal-content {
+         width: 80%;
+         max-width: 400px;
+         padding: 25px;
+         border-radius: 8px;
+         background-color: white;
+         color: black;
+         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }
+
+      .tooltip-container {
+         position: relative;
+         display: block;
+         width: fit-content;
+         margin: 10px auto;
+      }
+
+      .tooltip-container #submitButton {
+         margin: 0;
+      }
+
+      .tooltip-text {
+         position: absolute;
+         bottom: 125%;
+         left: 50%;
+         width: 170px;
+         padding: 6px;
+         border-radius: 4px;
+         background-color: #333333;
+         color: white;
+         text-align: center;
+         opacity: 0;
+         visibility: hidden;
+         transform: translateX(-50%);
+         transition: opacity 0.2s;
+      }
+
+      .tooltip-container:hover .tooltip-text,
+      .tooltip-container:focus-within .tooltip-text {
+         opacity: 1;
+         visibility: visible;
+      }
    </style>
 </head>
 
 <body>
+   <div id="welcomeModal" class="modal-overlay">
+      <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+         <h2 id="modalTitle">Welcome to my page!</h2>
+         <button id="closeModal" type="button">Close</button>
+      </div>
+   </div>
+
    <header>
       <h1 id="welcomeMessage">Welcome to My Homepage</h1>
 
@@ -282,20 +345,24 @@
 
             <br><br>
 
-            <button id="submitButton" type="submit">Submit</button>
+            <div class="tooltip-container">
+               <button id="submitButton" type="submit">Submit</button>
+               <span class="tooltip-text" role="tooltip">
+                  Click to send your message!
+               </span>
+            </div>
          </form>
       </section>
    </main>
 
    <script>
-      // Prompt the user for their name and store it in a variable
-      let userName = prompt("What is your name?");
+      // Close the welcome modal when the Close button is selected
+      let welcomeModal = document.getElementById("welcomeModal");
+      let closeModalButton = document.getElementById("closeModal");
 
-      // Update the welcome message if the user enters a name
-      if (userName) {
-         document.getElementById("welcomeMessage").textContent =
-            "Welcome, " + userName + "!";
-      }
+      closeModalButton.addEventListener("click", function() {
+         welcomeModal.style.display = "none";
+      });
 
       // Create an array of skills and technologies
       let skills = ["HTML", "CSS", "JavaScript", "Git", "GitHub"];
@@ -384,9 +451,26 @@
       // Select the dark mode checkbox
       let darkModeToggle = document.getElementById("darkMode");
 
-      // Switch between light mode and dark mode
+      // Apply the saved color preference when the page loads
+      let savedDarkMode = localStorage.getItem("darkMode");
+
+      if (savedDarkMode === "enabled") {
+         document.body.classList.add("dark-mode");
+         darkModeToggle.checked = true;
+      }
+
+      // Switch color modes and save the selected preference
       darkModeToggle.addEventListener("change", function() {
-         document.body.classList.toggle("dark-mode");
+         document.body.classList.toggle(
+            "dark-mode",
+            darkModeToggle.checked
+         );
+
+         if (darkModeToggle.checked) {
+            localStorage.setItem("darkMode", "enabled");
+         } else {
+            localStorage.setItem("darkMode", "disabled");
+         }
       });
 
       // Select the Contact form
@@ -426,4 +510,3 @@
       });
    </script>
 </body>
-</html>
