@@ -3,10 +3,10 @@
 <head>
    <!--
       Name: Max Ramos
-      Date: July 19, 2026
-      Purpose: This is the fourth installment of a cumulative project, a
-      personal portfolio homepage that includes a custom welcome modal,
-      a tooltip for the contact form, and a saved dark mode preference.
+      Date: July 25, 2026
+      Purpose: This cumulative project is a personal portfolio homepage that
+      displays project information, a custom welcome modal, a contact form,
+      and a saved dark mode preference.
 -->
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -284,41 +284,7 @@
             application development, and web development.
          </p>
 
-         <a
-            class="project-link"
-            href="https://github.com/maxram3385/SDC330L_Project"
-            target="_blank"
-         >
-            <img
-               src="SDC330LProjgit.png"
-               alt="Employee Management App screenshot"
-            >
-            <p>Employee Management App</p>
-         </a>
-
-         <a
-            class="project-link"
-            href="https://github.com/maxram3385/MaxRamosPhotoGallery"
-            target="_blank"
-         >
-            <img
-               src="Photogallerygit.png"
-               alt="Photo Gallery Project screenshot"
-            >
-            <p>Photo Gallery</p>
-         </a>
-
-         <a
-            class="project-link"
-            href="https://github.com/maxram3385/HomebredAquaticsAquariumTracker"
-            target="_blank"
-         >
-            <img
-               src="Aquariumtrackergit.png"
-               alt="Aquarium Tracker Project screenshot"
-            >
-            <p>Aquarium Tracker</p>
-         </a>
+         <div id="projectList"></div>
       </section>
 
       <section id="contact">
@@ -374,6 +340,69 @@
          let listItem = document.createElement("li");
          listItem.textContent = skill;
          skillsList.appendChild(listItem);
+      });
+
+      // Create project objects and place them in an array
+      let employeeProject = {
+         title: "Employee Management App",
+         summary: "This application allows users to add, view, and manage employee information.",
+         image: "SDC330LProjgit.png",
+         repository: "https://github.com/maxram3385/SDC330L_Project"
+      };
+
+      let photoGalleryProject = {
+         title: "Photo Gallery",
+         summary: "This application displays a collection of photos in a simple gallery layout.",
+         image: "Photogallerygit.png",
+         repository: "https://github.com/maxram3385/MaxRamosPhotoGallery"
+      };
+
+      let aquariumTrackerProject = {
+         title: "Aquarium Tracker",
+         summary: "This application helps users organize and track aquarium information.",
+         image: "Aquariumtrackergit.png",
+         repository: "https://github.com/maxram3385/HomebredAquaticsAquariumTracker"
+      };
+
+      let projects = [
+         employeeProject,
+         photoGalleryProject,
+         aquariumTrackerProject
+      ];
+
+      // Store the projects or retrieve the saved project information
+      let storedProjects = sessionStorage.getItem("projects");
+
+      if (storedProjects === null) {
+         sessionStorage.setItem("projects", JSON.stringify(projects));
+      } else {
+         projects = JSON.parse(storedProjects);
+      }
+
+      // Display each project in the Projects section
+      let projectList = document.getElementById("projectList");
+
+      projects.forEach(function(project) {
+         let projectTitle = document.createElement("h3");
+         projectTitle.textContent = project.title;
+
+         let projectSummary = document.createElement("p");
+         projectSummary.textContent = project.summary;
+
+         let projectImage = document.createElement("img");
+         projectImage.src = project.image;
+         projectImage.alt = project.title + " screenshot";
+
+         let projectLink = document.createElement("a");
+         projectLink.textContent = "View Repository";
+         projectLink.href = project.repository;
+         projectLink.target = "_blank";
+         projectLink.classList.add("project-link");
+
+         projectList.appendChild(projectTitle);
+         projectList.appendChild(projectSummary);
+         projectList.appendChild(projectImage);
+         projectList.appendChild(projectLink);
       });
 
       // Dynamically create and add a paragraph to the Projects section
